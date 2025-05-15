@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Guide - The Joyful Gardener</title>
+    <style>
+        body {
+            background-image: url('succulents.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        #adopt-hibiscus,
+        #adopt-succulents {
+            background-color: #4CAF50;
+            /* Green */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #adopt-hibiscus:hover,
+        #adopt-succulents:hover {
+            background-color: #367c39;
+            /* Darker green */
+        }
+
+        #hibiscus-status,
+        #succulents-status {
+            font-weight: bold;
+            margin-left: 10px;
+            color: green;
+            /* Default color for "Available" */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nairobi Plant Guide</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adoption.html">Plant Guide</a></li>
+                <li><a href="community.html">Community</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hibiscus">
+            <h2>Hibiscus</h2>
+            <img src="hibiscus (2).jpg" alt="Hibiscus Plant" width="400">
+            <p>
+                Hibiscus plants are prized for their large, colorful,
+                trumpet-shaped flowers. They thrive in warm climates like Nairobi
+                and come in various species and cultivars.
+            </p>
+            <h3>Care Tips:</h3>
+            <ul>
+                <li>
+                    <strong>Sunlight:</strong> Full sun to partial shade.
+                </li>
+                <li>
+                    <strong>Watering:</strong> Regular watering, especially when
+                    flowering.
+                </li>
+                <li>
+                    <strong>Soil:</strong> Well-draining, fertile soil.
+                </li>
+            </ul>
+            <button id="adopt-hibiscus">Adopt Hibiscus</button>
+            <span id="hibiscus-status">Available</span>
+        </section>
+        <section id="succulents">
+            <h2>Succulents</h2>
+            <img src="succulent.jpg" alt="Variety of Succulents" width="400">
+            <p>
+                Succulents are water-wise plants perfect for drier areas of Nairobi.
+                They come in fascinating shapes and textures.
+            </p>
+            <h3>Care Tips:</h3>
+            <ul>
+                <li>
+                    <strong>Sunlight:</strong> Bright, indirect sunlight.
+                </li>
+                <li>
+                    <strong>Watering:</strong> Water sparingly, allowing the soil to
+                    dry out completely between waterings.
+                </li>
+                <li>
+                    <strong>Soil:</strong> Well-draining succulent or cactus mix.
+                </li>
+            </ul>
+            <button id="adopt-succulents">Adopt Succulents</button>
+            <span id="succulents-status">Available</span>
+        </section>
+        <p><a href="#top">Back to Top</a></p>
+    </main>
+    <footer>
+        <p>&copy; 2025 The Joyful Gardener</p>
+    </footer>
+    <script>
+        const hibiscusAdoptButton = document.getElementById("adopt-hibiscus");
+        const hibiscusStatusSpan = document.getElementById("hibiscus-status");
+        const succulentsAdoptButton = document.getElementById("adopt-succulents");
+        const succulentsStatusSpan = document.getElementById("succulents-status");
+        function handlePlantAdoption(plantType, statusSpan) {
+            if (statusSpan.textContent === "Available") {
+                alert(
+                    `You have adopted the ${plantType}! Please contact us for pickup.`
+                );
+                statusSpan.textContent = "Adopted";
+                statusSpan.style.color = "red";
+            } else {
+                alert(`Sorry, the ${plantType} has already been adopted.`);
+            }
+        
+        hibiscusAdoptButton.addEventListener("click", () =>
+            handlePlantAdoption("Hibiscus", hibiscusStatusSpan)
+        );
+        succulentsAdoptButton.addEventListener("click", () =>
+            handlePlantAdoption("Succulents", succulentsStatusSpan)
+        );
+    </script>
+</body>
+</html>
